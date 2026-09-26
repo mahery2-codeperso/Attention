@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    flex : 1;
+    min-height: 100vh;
+}
+
+.fred {
+    position: relative;
+}
+
+.img {
+    /* permet de le détacher complètement */
+    position: absolute;
+    right : 0;
+    z-index: 1;
+    width : 100%;
+    display: none;
+    overflow: hidden;    /* Coupe ce qui dépasse */
+    margin: 50% 0 0 0;
+}
+
+.button {
+    /* permet de le détacher complètement */
+    position: absolute;
+    z-index: 2;
+    margin : 0.75rem;
+    padding: 0.3rem 0.3rem;
+    background-color: rgba(48, 46, 46, 0.7);
+    color: rgb(102, 96, 96);
+    border: none;
+    border-style: groove;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 30%;
+    transition: all 0.235s ease;
+}
+
+.button:hover {
+    opacity: 90%;
+    box-shadow: 0 0 10px #969595;
+}
+
+.fred h1 {
+    position: absolute;
+    top: 50%;
+    left: 2.5%;
+    font-size: 1.5rem;
+    width: 100%;
+    font-family: 'Press Start 2P', monospace;
+    margin: 75% 0 0 0;
+    color: rgb(230, 229, 229);
+    transition: all 0.235s ease;
+}
+
+@media (min-width : 769px) {
+
+
+    .img {
+    /* permet de le détacher complètement */
+    position: absolute;
+    right : 0;
+    width : 100%;
+    aspect-ratio: 16 / 9; /* Format téléphone horizontal */
+    margin: 0 0 0 0;
+    }
+
+    .button {
+    /* permet de le détacher complètement */
+    position: absolute;
+    z-index: 2;
+    margin : 0.75rem;
+    padding: 0.5rem 0.5rem;
+    background-color: rgba(48, 46, 46, 0.7);
+    color: rgb(102, 96, 96);
+    border: none;
+    border-style: groove;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 10%;
+    }
+
+    .fred h1 {
+    font-size: 4rem;
+    width: auto;
+    left: 22.5%;
+    margin: 25% 0 0 0;
+}
+}
