@@ -3,38 +3,33 @@ const btn = document.querySelector(".button");
 const text = document.querySelector(".fred h1");
 const audio = document.querySelector("#jgf");
 audio.volume = 0.1;
-
+const srcAudio = audio.src; // on enregistre l'audio une variable
 let audioTime = null; // variable du temps de l'audio
+
 btn.addEventListener("pointerdown", () => {
     image.style.display = (image.style.display === "block") 
     ? "none"
     : "block";
     
+    // si on appuye sur le bouton pour afficher le texte
     if (image.style.display === "none") {
         text.textContent = "Tu as eu peur ???";
+        audio.pause(); // On coupe l'audio
+        audio.src = ""; // On retire l'audio
+        clearTimeout(audioTime); // pour effacer le temps qui tourne en fond
     }
     else {
         text.textContent = "";
-    }
-
-    
-    // si le son est coupé
-    if (audio.paused)
-    {
+        audio.src = srcAudio; // on recharge l'audio
         audio.currentTime = 0; // on reset le temps de l'audio (=remet à zéro)
         audio.play(); // on joue l'audio
-    clearTimeout(audioTime); // on reset la variable du temps de l'audio
-    // L'audio s'arrête au bout de 5 sec
-    audioTime = setTimeout(() => {
+        clearTimeout(audioTime); // pour effacer le temps qui tourne en fond
+        // L'audio s'arrête au bout de 5 sec (il faut obligatoirement mettre en millisecondes)
+        audioTime = setTimeout(() => {
         audio.pause();
-    },5000);
+        audio.currentTime = 0;
+        audio.src = "";
+        },5000);
     }
-    // sinon le son est toujours là
-    else 
-    {
-        audio.pause(); // On coupe l'audio
-        clearTimeout(audioTime); // on reset la variable du temps de l'audio
     
-    }
-    console.log(audioTime);
 })
