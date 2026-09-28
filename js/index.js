@@ -21,13 +21,13 @@ btn.addEventListener("pointerdown", () => {
     else {
         text.textContent = "";
         audio.src = srcAudio; // on recharge l'audio
-        audio.currentTime = 0.15; // on reset le temps de l'audio (=remet à zéro)
+        audio.currentTime = 0.15; // // on remet l'audio à 0 (genre le temps de l'audio (0:00))
         audio.play(); // on joue l'audio
         clearTimeout(audioTime); // pour effacer le temps qui tourne en fond
         // L'audio s'arrête au bout de 5 sec (il faut obligatoirement mettre en millisecondes)
         audioTime = setTimeout(() => {
         audio.pause();
-        audio.currentTime = 0;
+        audio.currentTime = 0.15; // on remet l'audio à 0 (genre le temps de l'audio (0:00))
         audio.src = "";
         },5000);
     }
